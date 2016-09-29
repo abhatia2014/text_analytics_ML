@@ -63,3 +63,34 @@ s.mat=t(data.matrix(result[["tdm"]]))
 #convert it to a dataframe
 
 s.df=as.data.frame(s.mat,stringsAsFactors = FALSE)
+
+#now cbind the names of the candidates to the dataframe
+
+s.df=cbind(s.df,rep(result[["name"]],nrow(s.df)))
+#name the last column
+colnames(s.df)[ncol(s.df)]="targetCandidate"
+s.df[,"targetCandidate"]
+s.df
+sum(is.na(s.df))
+# no NAs
+head(s.df)
+ncol(s.df)
+nrow(s.df)
+#train the model
+
+train.idx=sample(nrow(s.df),ceiling(nrow(s.df)*0.5))
+test.idx=(1:nrow(s.df))[-train.idx]
+
+#we are going to pull out the name of the candidate and put it as a separate variable
+
+s.df.cand=s.df[,"targetCandidate"]
+s.df.nl=s.df[,!colnames(s.df) %in% "targetCandidate"]
+dim(s.df.cand[train.idx])
+#create the model
+
+knnpred=knn(s.df.nl[train.idx,],s.df.nl[test.idx,],s.df.cand[train.idx])
+
+#do the prediction
+#create the prediction model
+
+conf.mat=table("predictions"=knnpred, Actual=s.df.cand[test.idx])
