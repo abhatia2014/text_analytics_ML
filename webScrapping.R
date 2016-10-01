@@ -11,3 +11,12 @@ library(data.table)
 library(dplyr)
 library(magrittr)
 library(rvest)
+library(RSelenium)
+url <- "https://www.goodreads.com/book/show/18619684-the-time-traveler-s-wife#other_reviews"
+output.filename="GR_TimeTravelersWife.csv"
+
+#start Selenium Server
+checkForServer()
+startServer()
+remDr=remoteDriver(browserName="safari",port=444)
+remDr$open()
