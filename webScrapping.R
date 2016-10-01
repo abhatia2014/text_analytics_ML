@@ -18,5 +18,6 @@ output.filename="GR_TimeTravelersWife.csv"
 #start Selenium Server
 checkForServer()
 startServer()
-remDr=remoteDriver(browserName="safari",port=444)
+remDr=remoteDriver(browserName="safari")
 remDr$open()
+remDr$navigate(url)
