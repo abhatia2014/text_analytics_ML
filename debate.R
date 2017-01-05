@@ -1,4 +1,4 @@
-#first commit on debate.R
+#first commit on debate.R- again
 #loading the libraries
 libs=c("tm","plyr","class")
 lapply(libs,require,character.only=TRUE)
