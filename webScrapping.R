@@ -12,6 +12,7 @@ library(dplyr)
 library(magrittr)
 library(rvest)
 library(RSelenium)
+<<<<<<< HEAD
 
 
 # RSelenium Server  -------------------------------------------------------
@@ -31,6 +32,23 @@ output.filename="GR_TimeTravelersWife.csv"
 
 
 
+=======
+url <- "https://www.goodreads.com/book/show/18619684-the-time-traveler-s-wife#other_reviews"
+output.filename="GR_TimeTravelersWife.csv"
+
+#start Selenium Server
+checkForServer(update = TRUE)
+path="/Users/aankurbhatia/Applications/Firefox.app"
+
+startServer(-Dwebdriver.firefox.bin=pathtoexecutable , log = FALSE, invisible = FALSE)
+
+remDr <- remoteDriver(browser='firefox')
+remDr$checkStatus()
+
+Sys.sleep(10)
+remDr$open()
+remDr$navigate(url)
+>>>>>>> 2b0f3290e96a65a0efc44d99968f05e95f578f73
 
 
 

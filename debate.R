@@ -1,4 +1,8 @@
+<<<<<<< HEAD
 #first commit on debate.R- again
+=======
+#first commit on debate.R
+>>>>>>> 2b0f3290e96a65a0efc44d99968f05e95f578f73
 #loading the libraries
 libs=c("tm","plyr","class")
 lapply(libs,require,character.only=TRUE)
@@ -6,7 +10,11 @@ lapply(libs,require,character.only=TRUE)
 options(stringsAsFactors = FALSE)
 
 #get the data
+<<<<<<< HEAD
 library(tm)
+=======
+
+>>>>>>> 2b0f3290e96a65a0efc44d99968f05e95f578f73
 debate=read.csv("debate.csv",stringsAsFactors = FALSE)
 debate_Clinton=as.data.frame(debate[debate$Speaker=="Clinton",c(3)])
 colnames(debate_Clinton)="text"
